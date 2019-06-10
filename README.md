@@ -23,10 +23,11 @@ panel and click on the 'play' button to see the results on the right hand side p
 
 Here is the list of queries and how to write them in order to fetch data/
 
-###Queries:
+### Queries:
+
+CLIENTS LIST:
 
 ```
-CLIENTS LIST:
 {
     clients {
         id
@@ -52,7 +53,36 @@ POLICIES LIST:
 }
 ```
 
-###Mutation:
+CLIENT BY NAME:
+The name of the user (between double quotes) can be changed. Barnett is just an example.
+
+```
+{
+  clientsByName(name: "Barnett") {
+    id
+    name
+    role
+    email
+  }
+}
+```
+
+CLIENT BY ID:
+The id of the user (between double quotes) can be changed. This one is just an example.
+
+```
+{
+  clientsById(id: "a3b8d425-2b60-4ad7-becc-bedf2ef860bd") {
+    id
+    name
+    role
+    email
+  }
+}
+```
+
+### Mutation:
+
 CREATE USER:
 This mutation has been created in order to Sign Up with two Users (the data has been taken from the Customers list) with different roles: one will have the 'Admin' role and the other one will have the simple 'User' role.
 In this way, we will be able to differentiate the permissions and authorizations regarding the list of policies linked to other Users.

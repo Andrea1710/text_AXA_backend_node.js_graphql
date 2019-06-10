@@ -13,6 +13,20 @@ module.exports = {
     return policies;
   },
 
+  clientsById: ({ id }) => {
+    const customerId = customers.find(client => {
+      return client.id === id;
+    });
+    return customerId;
+  },
+
+  clientsByName: ({ name }) => {
+    const customerName = customers.find(client => {
+      return client.name === name;
+    });
+    return customerName;
+  },
+
   createUser: async args => {
     try {
       const existingUser = await User.findOne({ id: args.userInput.id });

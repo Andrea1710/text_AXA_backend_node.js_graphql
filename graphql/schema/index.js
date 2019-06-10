@@ -32,6 +32,8 @@ module.exports = buildSchema(`
     type RootQuery {
         clients: [Client!]!
         policies: [Policy!]!
+        clientsById(id: String!): Client
+        clientsByName(name: String!): Client
     }
 
     type RootMutation {
