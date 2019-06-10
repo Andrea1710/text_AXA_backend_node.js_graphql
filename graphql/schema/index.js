@@ -8,8 +8,18 @@ module.exports = buildSchema(`
         email: String!
     }
 
+    type Policy {
+        id: String!
+        amountInsured: Float!
+        email: String!
+        inceptionDate: String!
+        installmentPayment: String!
+        clientId: String!
+    }
+
     type RootQuery {
         clients: [Client!]!
+        policies: [Policy!]!
     }
 
     schema {

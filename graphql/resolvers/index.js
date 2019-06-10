@@ -6,5 +6,9 @@ const policies = JSON.parse(fs.readFileSync("./policies.json", "utf8"));
 module.exports = {
   clients: () => {
     return customers;
+  },
+
+  policies: () => {
+    return policies;
   }
 };
