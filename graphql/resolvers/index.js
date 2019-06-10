@@ -28,6 +28,26 @@ module.exports = {
     return customerName;
   },
 
+  policyByName: ({ name }, req) => {
+    const customer = customers.find(c => {
+      return name === c.name;
+    });
+    const policy = policies.filter(p => {
+      return customer.id === p.clientId;
+    });
+    return policy;
+  },
+
+  userByPolicy: ({ policy }, req) => {
+    const policyId = policies.find(p => {
+      return policy === p.id;
+    });
+    const customer = customers.find(c => {
+      return policyId.clientId === c.id;
+    });
+    return customer;
+  },
+
   createUser: async args => {
     try {
       const existingUser = await User.findOne({ id: args.userInput.id });

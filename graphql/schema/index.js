@@ -41,6 +41,8 @@ module.exports = buildSchema(`
         policies: [Policy!]!
         clientsById(id: String!): Client
         clientsByName(name: String!): Client
+        policyByName(name: String!): [Policy]
+        userByPolicy(policy: String!): Client
         login(id: String!): AuthData!
     }
 

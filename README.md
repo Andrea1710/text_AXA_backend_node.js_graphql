@@ -89,6 +89,7 @@ The id of the user (between double quotes) can be changed. This one is just an e
 The login, just for this project purpose, works with the ID only.
 For now, due to the fact the only 'Britney' and 'Barnett', we can only login with these two Users.
 We can add more Users using the 'createUser' Mutation anyway.
+We set a token, so our program will know when a User is authenticated, reading the permissions of that particular user.
 
 ```
 {
@@ -97,6 +98,38 @@ We can add more Users using the 'createUser' Mutation anyway.
     name
     token
     role
+  }
+}
+```
+
+#### POLICY BY NAME:
+
+With this query, we can fetch all the related Policies linked to a single User, typing its name (between double quotes). Obviously, we can change the name to see other policies linked to that specific other user.
+
+```
+{
+  policyByName(name: "Britney") {
+    id
+    amountInsured
+    email
+    inceptionDate
+    installmentPayment
+    clientId
+  }
+}
+```
+
+#### USERS BY POLICY:
+
+With this query, we can fetch the name of the User linked to the Policy ID we specified between double quotes.
+
+```
+{
+	userByPolicy(policy: "64cceef9-3a01-49ae-a23b-3761b604800b") {
+    id
+    name
+    role
+    email
   }
 }
 ```
