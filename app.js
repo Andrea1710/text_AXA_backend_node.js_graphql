@@ -12,6 +12,7 @@ const app = express();
 
 app.use(bodyParser.json());
 
+// middleware to check if User is authenticated
 app.use(isAuth);
 
 app.use(
@@ -23,6 +24,7 @@ app.use(
   })
 );
 
+// connection to Database to save Users after being created
 mongoose
   .connect(
     `mongodb+srv://andrea:tester88@cluster0-pud7f.mongodb.net/clientes?retryWrites=true&w=majority`

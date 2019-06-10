@@ -1,5 +1,6 @@
 const { buildSchema } = require("graphql");
 
+// schemas for queries
 module.exports = buildSchema(`
     type Client {
         id: String!

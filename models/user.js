@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 
 const Schema = mongoose.Schema;
 
+// schema of User to be saved into DB when created
 const userSchema = new Schema({
   id: {
     type: String,
