@@ -28,7 +28,47 @@ In order to run successfully the queries, we will need to write the query (as sh
 panel and click on the 'play' button to see the results on the right hand side panel.
 On MAC, pressing 'option + space', we can get autocompletion and suggestions.
 
-Here is the list of queries and how to write them in order to fetch data/
+Here is the list of queries and how to write them in order to fetch data.
+
+### POSTMAN
+
+As we don't have a frontend in this App, we will need to use Postman (or any other tool) in order to authenticate our Users and read permissions (Admin or User) and, therefore, fetch the data related to the policies.
+
+Here is how to proceed with Postman.
+
+- POST request to: http://localhost:3000/graphql
+- go to BODY section
+- set the body to RAW and select JSON(application/json)
+- write the query in the space as the example that follows:
+  Britney => Admin permissions:
+
+```
+{
+	"query": "query { login(id: \"a0ece5db-cd14-4f21-812f-966633e7be86\") { token }}"
+}
+```
+
+Barnett => User permissions
+
+```
+{
+	"query": "query { login(id: \"a3b8d425-2b60-4ad7-becc-bedf2ef860bd\") { token }}"
+}
+```
+
+- send the POST request
+- copy the token shown below in the Body of the response
+- go to HEADER
+- add another field named 'Authorization as key;
+- in the value input, write 'Bearer + space + paste the Token'
+- go back to the BODY section
+- write the query in the space as the example that follows:
+
+```
+{
+	"query": "query { policyByName(name: \"Britney\") { id, amountInsured, email, inceptionDate, installmentPayment, clientId } }"
+}
+```
 
 ### Queries:
 
