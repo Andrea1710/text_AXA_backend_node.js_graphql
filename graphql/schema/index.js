@@ -17,12 +17,29 @@ module.exports = buildSchema(`
         clientId: String!
     }
 
+    type User {
+        id: String!
+        name: String!
+        role: String!
+    }
+
+    input UserInput {
+        id: String!
+        name: String!
+        role: String!
+    }
+
     type RootQuery {
         clients: [Client!]!
         policies: [Policy!]!
     }
 
+    type RootMutation {
+        createUser(userInput: UserInput): User
+    }
+
     schema {
         query: RootQuery
+        mutation: RootMutation
     }
     `);
