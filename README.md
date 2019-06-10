@@ -7,10 +7,16 @@ Backend Test Application using Node.js, GraphQL and MongoDB
 Git Clone the Project and then run
 
 ```bash
-NPM INSTALL
+npm install
 ```
 
-to download all the dependencies needed.
+to download all the dependencies needed, and then run
+
+```bash
+npm start
+```
+
+to start the Server, which will be running on port 8000.
 
 ## Usage
 
@@ -125,7 +131,7 @@ With this query, we can fetch the name of the User linked to the Policy ID we sp
 
 ```
 {
-	userByPolicy(policy: "64cceef9-3a01-49ae-a23b-3761b604800b") {
+  userByPolicy(policy: "64cceef9-3a01-49ae-a23b-3761b604800b") {
     id
     name
     role

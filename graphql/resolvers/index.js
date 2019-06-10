@@ -29,6 +29,11 @@ module.exports = {
   },
 
   policyByName: ({ name }, req) => {
+    if (req.role !== "admin") {
+      throw new Error(
+        "You are not an Admin and you don't have permissions to read this data"
+      );
+    }
     const customer = customers.find(c => {
       return name === c.name;
     });
@@ -39,6 +44,11 @@ module.exports = {
   },
 
   userByPolicy: ({ policy }, req) => {
+    if (req.role !== "admin") {
+      throw new Error(
+        "You are not an Admin and you don't have permissions to read this data"
+      );
+    }
     const policyId = policies.find(p => {
       return policy === p.id;
     });
