@@ -29,11 +29,19 @@ module.exports = buildSchema(`
         role: String!
     }
 
+    type AuthData {
+        id: String!
+        name: String!
+        token: String!
+        role: String!
+    }
+
     type RootQuery {
         clients: [Client!]!
         policies: [Policy!]!
         clientsById(id: String!): Client
         clientsByName(name: String!): Client
+        login(id: String!): AuthData!
     }
 
     type RootMutation {

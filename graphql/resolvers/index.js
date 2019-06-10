@@ -1,4 +1,5 @@
 const fs = require("fs");
+const jwt = require("jsonwebtoken");
 const User = require("../../models/user");
 
 const customers = JSON.parse(fs.readFileSync("./customers.json", "utf8"));
@@ -42,5 +43,18 @@ module.exports = {
     } catch (err) {
       throw err;
     }
+  },
+
+  login: async ({ id }) => {
+    const user = await User.findOne({ id: id });
+    if (!user) {
+      throw new Error("User does not exist");
+    }
+    const token = jwt.sign(
+      { userId: user.id, email: user.email },
+      "examplekeytomatch"
+    );
+
+    return { id: user.id, name: user.name, role: user.role, token: token };
   }
 };

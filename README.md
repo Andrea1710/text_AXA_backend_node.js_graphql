@@ -20,12 +20,13 @@ http://localhost:8000/graphql
 Here, on the left hand side, we will be writing the queries and mutations.
 In order to run successfully the queries, we will need to write the query (as shown below) on the left hand side
 panel and click on the 'play' button to see the results on the right hand side panel.
+On MAC, pressing 'option + space', we can get autocompletion and suggestions.
 
 Here is the list of queries and how to write them in order to fetch data/
 
 ### Queries:
 
-CLIENTS LIST:
+#### CLIENTS LIST:
 
 ```
 {
@@ -38,7 +39,7 @@ CLIENTS LIST:
 }
 ```
 
-POLICIES LIST:
+#### POLICIES LIST:
 
 ```
 {
@@ -53,7 +54,8 @@ POLICIES LIST:
 }
 ```
 
-CLIENT BY NAME:
+#### CLIENT BY NAME:
+
 The name of the user (between double quotes) can be changed. Barnett is just an example.
 
 ```
@@ -67,7 +69,8 @@ The name of the user (between double quotes) can be changed. Barnett is just an 
 }
 ```
 
-CLIENT BY ID:
+#### CLIENT BY ID:
+
 The id of the user (between double quotes) can be changed. This one is just an example.
 
 ```
@@ -81,9 +84,27 @@ The id of the user (between double quotes) can be changed. This one is just an e
 }
 ```
 
+#### LOGIN:
+
+The login, just for this project purpose, works with the ID only.
+For now, due to the fact the only 'Britney' and 'Barnett', we can only login with these two Users.
+We can add more Users using the 'createUser' Mutation anyway.
+
+```
+{
+  login(id: "a0ece5db-cd14-4f21-812f-966633e7be86") {
+    id
+    name
+    token
+    role
+  }
+}
+```
+
 ### Mutation:
 
-CREATE USER:
+#### CREATE USER:
+
 This mutation has been created in order to Sign Up with two Users (the data has been taken from the Customers list) with different roles: one will have the 'Admin' role and the other one will have the simple 'User' role.
 In this way, we will be able to differentiate the permissions and authorizations regarding the list of policies linked to other Users.
 
@@ -101,4 +122,4 @@ However, the Users taken (one is 'Britney' with 'Admin' permissions and the othe
 
 ## Author
 
-Andrea Belluccia
+###Andrea Belluccia
